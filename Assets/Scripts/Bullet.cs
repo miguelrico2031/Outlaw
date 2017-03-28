@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public event Action OnBulletDestroyed;
+
     private Rigidbody2D rb;
     public float speed = 5f;
 
@@ -12,7 +15,6 @@ public class Bullet : MonoBehaviour
 
     public void Init(Vector2 direction)
     {
-        //rb.velocity=new Vector2(1,0) *speed;
         rb.velocity = direction * speed;
     }
 
@@ -20,13 +22,15 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if(OnBulletDestroyed!=null)
+                OnBulletDestroyed();
             Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("Objects"))
         {
+            if (OnBulletDestroyed != null)
+                OnBulletDestroyed();
             Destroy(gameObject);
-
         }
-
     }
 }
