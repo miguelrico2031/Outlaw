@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 direction = new Vector2(1, vertical);
                 direction.Normalize();
                 anim.SetBool("Shooting",true);
+                anim.SetFloat("ShootingDirection", direction.y);
                 CurrentBullet = Instantiate(bullet, spawnPosition.position, Quaternion.identity).GetComponent<Bullet>();
                 CurrentBullet.Init(new Vector2(direction.x*transform.localScale.x, direction.y));
                 CurrentBullet.OnBulletDestroyed += OnBulletDestroyed;
