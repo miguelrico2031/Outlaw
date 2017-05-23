@@ -9,6 +9,8 @@ public class GameLimits : MonoBehaviour
     private float height;
     private float width;
 
+    public float topOffset=2;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -20,7 +22,7 @@ public class GameLimits : MonoBehaviour
         left.localScale=new Vector3(height,0);
         right.localScale=new Vector3(height,0);
 
-        top.localPosition=new Vector3(0,height/2);
+        top.localPosition=new Vector3(0,height/2-topOffset);
         bottom.localPosition=new Vector3(0,height/-2);
         left.localPosition=new Vector3(width/-2,0);
         right.localPosition=new Vector3(width/2,0);
