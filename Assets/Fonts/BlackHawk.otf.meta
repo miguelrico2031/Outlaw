@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f286a0c2eb1677e4ca1c3c7b1acfc3c4
+timeCreated: 1496708144
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: BlackHawk
+  fontNames:
+  - BlackHawk
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

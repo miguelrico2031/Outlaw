@@ -76,12 +76,14 @@ public class PlayerController : MonoBehaviour
         rb.isKinematic = true;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().sortingOrder = -1;
+
+        UIController.Instance.ShowGameOver(playerId);
     }
 
     //private void OnCollisionEnter2D(Collision2D collisionInfo)
     //{
     //    print(collisionInfo.gameObject.name);
     //}
-
+    
 }
 

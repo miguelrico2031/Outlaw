@@ -38,8 +38,5 @@ public class Health : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
-
     }
-
-
 }
