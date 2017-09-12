@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Bullet CurrentBullet;
     private Health health;
     private bool alive = true;
+
     void Awake()
     {
         //Obtenemos el componente de rigidbody
@@ -49,8 +50,7 @@ public class PlayerController : MonoBehaviour
                     direction.Normalize();
                     anim.SetBool("Shooting", true);
                     anim.SetFloat("ShootingDirection", direction.y);
-                    CurrentBullet =
-                        Instantiate(bullet, spawnPosition.position, Quaternion.identity).GetComponent<Bullet>();
+                    CurrentBullet = Instantiate(bullet, spawnPosition.position, Quaternion.identity).GetComponent<Bullet>();
                     CurrentBullet.Init(new Vector2(direction.x*transform.localScale.x, direction.y));
                     CurrentBullet.OnBulletDestroyed += OnBulletDestroyed;
                     bulletCreated = true;
@@ -71,6 +71,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
+        Bullet[] bullets = GameObject.FindObjectsOfType<Bullet>();
+
+        for (int i = 0; i < bullets.Length; i++)
+        {
+            bullets[i].DestroyBullet();
+        }
+
+        //if (CurrentBullet != null)
+        //{
+        //    CurrentBullet.gameObject.SetActive(false);
+        //}
+        
         alive = false;
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
